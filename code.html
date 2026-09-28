@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<title>Calibrating a sensor — Halden Developer Docs</title>
+<style>
+  body { margin:0; background:#f7f7f5; color:#1b1c1e; font: 400 17px/1.55 -apple-system, "SF Pro Text", sans-serif; }
+  main { max-width: 860px; margin: 0 auto; padding: 72px 32px; }
+  h1 { font: 700 34px/1.15 -apple-system, "SF Pro Display", sans-serif; letter-spacing:-.01em; margin:0 0 12px; }
+  p { color:#44474d; margin: 0 0 28px; }
+  pre { background:#16181d; color:#d8dde6; border-radius:14px; padding: 28px 32px; font: 400 18px/1.6 "SF Mono", Menlo, monospace; overflow:auto; }
+  .k { color:#ff7ab2; } .t { color:#6bdfff; } .f { color:#67b7a4; } .s { color:#fc6a5d; } .n { color:#d0bf69; } .c { color:#7f8c98; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Calibrating a sensor</h1>
+  <p>Apply the stored offset and scale before you publish a reading.</p>
+<pre id="hero-code"><span class="k">def</span> <span class="f">apply_calibration</span>(raw, offset=<span class="n">0.42</span>, scale=<span class="n">1.003</span>):
+    <span class="k">if</span> raw <span class="k">is</span> <span class="k">None</span>:
+        <span class="k">return</span> <span class="k">None</span>
+    <span class="k">return</span> (raw - offset) * scale
+
+
+reading = <span class="f">apply_calibration</span>(<span class="n">21.9</span>)
+<span class="f">print</span>(<span class="f">round</span>(reading, <span class="n">2</span>))</pre>
+</main>
+<footer style="max-width:720px;margin:160px auto 48px;padding:0 24px;font:400 13px/1.5 -apple-system,sans-serif;color:#9a9ca1">Demo content for the RIP product film. Halden Instruments and The Field Journal are fictional.</footer>
+</body>
+</html>
